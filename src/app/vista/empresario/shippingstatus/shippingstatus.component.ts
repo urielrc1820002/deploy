@@ -26,25 +26,14 @@ export class ShippingstatusComponent implements OnInit {
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+   
   }
 
   getShipment() {
-    this.ShipmentService.getShipment().subscribe((data: Shipment[]) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
+    
   }
 
   deleteShipment(id: number) {
-    this.ShipmentService.deleteShipment(id).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((e: Shipment) => {
-        return e.id !== id ? e : false;
-      });
-      this.snackBar.open('El Shipment fue eliminado con exito!', '', {
-        duration: 6000
-      });
-    });
+    
   }
 }
